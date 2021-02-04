@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#panel {
+    background: #B4E000;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#canvas {
+    background-color: #B4E000;
+    display: flex;
+    flex-wrap: wrap;
+    border: 8px solid #222;
+    border-radius: 5px;
+}
+
+#pixel {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    overflow: hidden;
+    border: 1px solid #B4E000;
+    background-color: #5DC700;
+}
+
+#bitmap {
+    font-family: monospace;
+    height: 300px;
+    overflow-y: scroll;
+}
