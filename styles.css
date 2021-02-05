@@ -1,20 +1,40 @@
+@font-face {
+    font-family: 'inconsolata';
+    src: url('inconsolata.ttf');
+}
+
+:root {
+    --panelBg: #D9EA95;
+    --activePixel: #133700;
+    --inactivePixel: #D1E195;
+}
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+body>div {
+    margin-top: 20px;
+}
+
 #panel {
-    background: #B4E000;
     display: flex;
     flex-wrap: wrap;
 }
 
+#lowerPanel {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+
 #canvas {
-    background-color: #B4E000;
+    background-color: var(--panelBg);
     display: flex;
     flex-wrap: wrap;
-    border: 8px solid #222;
     border-radius: 5px;
 }
 
@@ -22,12 +42,23 @@ body {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     overflow: hidden;
-    border: 1px solid #B4E000;
-    background-color: #5DC700;
+    border: 1px solid var(--panelBg);
+    background-color: var(--inactivePixel);
 }
 
 #bitmap {
-    font-family: monospace;
-    height: 300px;
+    box-sizing: border-box;
+    font-family: 'inconsolata';
+    background-color: #fdf6e3;
+    padding: 20px;
+    font-size: 85%;
+    color: #222;
+    min-width: 35vw;
+    border-radius: 5px;
     overflow-y: scroll;
+    scrollbar-width: thin;
+}
+
+#clear, #bytes, #createChar, #setCursor {
+    margin-left: 20px;
 }

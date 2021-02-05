@@ -13,21 +13,23 @@
 </head>
 
 <body>
-    <div id="menu">
-        <button id="8x2" onclick="updateCanvasSize(8, 2)">8x2</button>
-        <button id="16x2" onclick="updateCanvasSize(16, 2)">16x2</button>
-        <button id="20x4" onclick="updateCanvasSize(20, 4)">20x4</button>
-    </div>
     <div id="canvas">
-
     </div>
-    <div id="bitmap">
-        <span>void image() {</span><br/>
-        <span>lcd.clear();</span>
-        <div id="bytes"></div>
-        <div id="out"></div>
-        <span>}</span>
-
+    <div id="lowerPanel">
+        <div id="options">
+            <button id="8x2" onclick="updateCanvasSize(8, 2)">8x2</button>
+            <button id="16x2" onclick="updateCanvasSize(16, 2)">16x2</button>
+            <button id="20x4" onclick="updateCanvasSize(20, 4)">20x4</button>
+        </div>
+        <div id="bitmap">
+            <span>void image() {</span><br />
+            <span id="clear">lcd.clear();</span><br /><br />
+            <div id="bytes"></div>
+            <br />
+            <div id="createChar"></div><br />
+            <div id="setCursor"></div>
+            <span>}</span>
+        </div>
     </div>
 </body>
 
