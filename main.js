@@ -6,10 +6,41 @@ let panelWidth = 5;
 let activeSegments = [];
 
 let updateCanvasSize = (w, h) => {
+    document.getElementById("copyAlert").style.opacity = 0;
     width = w;
     height = h;
     panelWidth = w > 16 ? 4 : 5;
     generateSegments();
+    if (!codeStyle.checked) {
+        document.getElementById("setup").innerText = `#include <LiquidCrystal.h>
+
+        LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // RS, E, D4, D5, D6, D7
+        
+        void setup() {
+            \xa0\xa0 lcd.begin(${width}, ${height});
+            \xa0\xa0 image();
+          }
+          
+          void loop() {}
+          
+          `
+    }
+}
+
+let updateColors = (color) => {
+    document.documentElement.style.setProperty('--panelBg', 'var(--panelBg' + color + ')');
+    document.documentElement.style.setProperty('--activePixel', 'var(--activePixel' + color + ')');
+    document.documentElement.style.setProperty('--inactivePixel', 'var(--inactivePixel' + color + ')');
+}
+
+let copyCode = () => {
+    let code = document.getElementById("bitmap");
+    code.style.whiteSpace = `pre-line`;
+    document.getElementById("dummy").value = code.innerText.trim().replace(/\n\n/gm, '\n');
+    document.querySelector("#dummy").select();
+    document.execCommand("copy");
+    code.style.whiteSpace = `nowrap`;
+    document.getElementById("copyAlert").style.opacity = 0.8;
 }
 
 let replaceAt = (string, index, replace) => {
@@ -113,6 +144,7 @@ let generateSegments = () => {
             pixel.style.width = `${panelWidth / 5}vw`;
             pixel.style.height = `${panelWidth / 5}vw`;
             pixel.onclick = () => {
+                document.getElementById("copyAlert").style.opacity = 0;
                 if (activeSegments.includes(i) || activeSegments.length < 8) {
                     activeSegments.includes(i) ? null : activeSegments.push(i);
                     generateSegmentCode(i, j, pixel);
@@ -127,8 +159,32 @@ let generateSegments = () => {
     }
 }
 
+let updateSetupCode = () => {
+    let codeStyleCheckBox = document.querySelector('input[id="codeStyle"]');
+    codeStyleCheckBox.addEventListener('change', () => {
+        if (codeStyleCheckBox.checked) {
+            document.getElementById("setup").innerText = ``;
+        }
+        else {
+            document.getElementById("setup").innerText = `#include <LiquidCrystal.h>
+
+            LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // RS, E, D4, D5, D6, D7
+            
+            void setup() {
+                \xa0\xa0 lcd.begin(${width}, ${height});
+                \xa0\xa0 image();
+              }
+              
+              void loop() {}
+              
+              `
+        }
+    });
+}
+
 window.onload = () => {
     updateCanvasSize(width, height);
+    updateSetupCode();
     document.getElementById("bitmap").style.width = `calc(${(width * 5 + width) / 2}vw - 20px)`;
-    document.getElementById("bitmap").style.height = `${document.getElementById("canvas").offsetHeight}px`;
+    document.getElementById("bitmap").style.height = `${document.getElementById("canvas").offsetHeight - 100}px`;
 };

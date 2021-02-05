@@ -11,17 +11,32 @@
     <script src="main.js"></script>
 
 </head>
+<textarea style="opacity: 0; position: fixed; z-index: -99999;" id="dummy"></textarea>
 
 <body>
     <div id="canvas">
     </div>
     <div id="lowerPanel">
         <div id="options">
-            <button id="8x2" onclick="updateCanvasSize(8, 2)">8x2</button>
-            <button id="16x2" onclick="updateCanvasSize(16, 2)">16x2</button>
-            <button id="20x4" onclick="updateCanvasSize(20, 4)">20x4</button>
+            <button id="x82" onclick="updateCanvasSize(8, 2)">8x2</button>
+            <button id="x162" onclick="updateCanvasSize(16, 2)">16x2</button>
+            <button id="x204" onclick="updateCanvasSize(20, 4)">20x4</button>
+            <span id="eraseAlert" style="font-size: 90%; opacity: 0.3;">⚠️ erases the screen</span>
+            <hr>
+            <button id="green" style="background-color: var(--panelBgGreen);"
+                onclick="updateColors('Green')">green</button>
+            <button id="blue" style="background-color: var(--panelBgBlue);" onclick="updateColors('Blue')">blue</button>
+            <button id="red" style="background-color: var(--panelBgRed);" onclick="updateColors('Red')">red</button>
+            <hr>
+            <input type="checkbox" id="codeStyle" name="just-the-function" checked>
+            <label for="just-the-function">just the function</label>
+
+            <button id="copy" onclick="copyCode()">copy the code</button>
+            <span id="copyAlert" style="font-size: 90%; opacity: 0;">📋 copied</span>
+
         </div>
         <div id="bitmap">
+            <span id="setup"></span>
             <span>void image() {</span><br />
             <span id="clear">lcd.clear();</span><br /><br />
             <div id="bytes"></div>

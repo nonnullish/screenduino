@@ -4,19 +4,74 @@
 }
 
 :root {
-    --panelBg: #D9EA95;
-    --activePixel: #133700;
-    --inactivePixel: #D1E195;
+    --panelBgGreen: #D9EA95;
+    --activePixelGreen: #133700;
+    --inactivePixelGreen: #D1E195;
+    --panelBgBlue: #95baea;
+    --activePixelBlue: #001837;
+    --inactivePixelBlue: #8faddb;
+    --panelBgRed: #ebbdbd;
+    --activePixelRed: #370800;
+    --inactivePixelRed: #e4b3b3;
+    --panelBg: var(--panelBgGreen);
+    --activePixel: var(--activePixelGreen);
+    --inactivePixel: var(--inactivePixelGreen);
+    --wrapCode: no-wrap;
+}
+
+::selection {
+    background-color: var(--inactivePixel);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+#x82:hover~#eraseAlert, #x162:hover~#eraseAlert, #x204:hover~#eraseAlert {
+    opacity: 1 !important;
+}
+
+hr {
+    border: 0px;
+    background-color: var(--inactivePixel);
+    height: 1px;
 }
 
 body {
+    background-color: #fafafa;
+    font-family: 'inconsolata';
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    justify-content: center;
+    overflow: visible;
 }
 
 body>div {
     margin-top: 20px;
+}
+
+button:active {
+    background-color: #f0e6d0;
+}
+
+button {
+    margin: 10px;
+    font-family: 'inconsolata';
+    border: none;
+    background-color: #FDF6E3;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
 }
 
 #panel {
@@ -57,6 +112,12 @@ body>div {
     border-radius: 5px;
     overflow-y: scroll;
     scrollbar-width: thin;
+    white-space: var(--wrapCode);
+    height: 100%;
+}
+
+label {
+    font-size: 85%;
 }
 
 #clear, #bytes, #createChar, #setCursor {
