@@ -63,7 +63,6 @@ let setCursorAndWrite = (i, j) => {
     // setCursorAndWrite
     for (i in images) {
         let segmentIndex = images[i].match(/\d\d/)[0] - 1;
-        console.log(segmentIndex)
         let column = segmentIndex < width ? segmentIndex : segmentIndex - Math.floor(segmentIndex / width) * width;
         let row = Math.floor(segmentIndex / width);
         document.getElementById("setCursor").innerText += `lcd.setCursor(${column}, ${row});
@@ -186,5 +185,5 @@ window.onload = () => {
     updateCanvasSize(width, height);
     updateSetupCode();
     document.getElementById("bitmap").style.width = `calc(${(width * 5 + width) / 2}vw - 20px)`;
-    document.getElementById("bitmap").style.height = `${document.getElementById("canvas").offsetHeight - 100}px`;
+    document.getElementById("bitmap").style.height = `${document.getElementById("canvas").offsetHeight - 130}px`;
 };

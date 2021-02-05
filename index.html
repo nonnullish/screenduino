@@ -14,10 +14,21 @@
 <textarea style="opacity: 0; position: fixed; z-index: -99999;" id="dummy"></textarea>
 
 <body>
+    <h1>
+        ~`* custom glyph generator *`~
+    </h1>
+    <h2>
+        make custom glyphs using the <a href="https://www.arduino.cc/en/Reference/LiquidCrystalCreateChar">
+            createChar() </a> function
+        from the <a href=" https://www.arduino.cc/en/Reference/LiquidCrystal">LiquidCrystal</a> library <br /> <br />
+        by <a href="https://github.com/tusindfryd/">tusindfryd</a>
+    </h2>
     <div id="canvas">
     </div>
     <div id="lowerPanel">
         <div id="options">
+            <div style="font-size: 90%;width: 100%; text-align: center;">📌 up to 8 sections can be used at once</div>
+            <hr>
             <button id="x82" onclick="updateCanvasSize(8, 2)">8x2</button>
             <button id="x162" onclick="updateCanvasSize(16, 2)">16x2</button>
             <button id="x204" onclick="updateCanvasSize(20, 4)">20x4</button>
@@ -27,6 +38,8 @@
                 onclick="updateColors('Green')">green</button>
             <button id="blue" style="background-color: var(--panelBgBlue);" onclick="updateColors('Blue')">blue</button>
             <button id="red" style="background-color: var(--panelBgRed);" onclick="updateColors('Red')">red</button>
+            <button id="grayscale" style="background-color: var(--panelBgGrayscale);"
+                onclick="updateColors('Grayscale')">grayscale</button>
             <hr>
             <input type="checkbox" id="codeStyle" name="just-the-function" checked>
             <label for="just-the-function">just the function</label>

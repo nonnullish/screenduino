@@ -13,6 +13,9 @@
     --panelBgRed: #ebbdbd;
     --activePixelRed: #370800;
     --inactivePixelRed: #e4b3b3;
+    --panelBgGrayscale: #eeeeee;
+    --activePixelGrayscale: #2c2c2c;
+    --inactivePixelGrayscale: #e0e0e0;
     --panelBg: var(--panelBgGreen);
     --activePixel: var(--activePixelGreen);
     --inactivePixel: var(--inactivePixelGreen);
@@ -30,6 +33,7 @@
 ::-webkit-scrollbar-track {
     border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
 }
@@ -42,6 +46,24 @@ hr {
     border: 0px;
     background-color: var(--inactivePixel);
     height: 1px;
+}
+
+h1 {
+    font-weight: normal;
+    color: var(--activePixel);
+    font-size: 120%;
+}
+
+h2 {
+    font-weight: normal;
+    color: #222222;
+    font-size: 100%;
+    text-align: center;
+    margin: 5px 0px 0px 0px;
+}
+
+a {
+    color: var(--activePixel)!important
 }
 
 body {
