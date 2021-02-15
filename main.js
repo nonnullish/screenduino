@@ -168,11 +168,9 @@ let updateSetupCode = () => {
         else {
             document.getElementById("setup").innerText = `#include <LiquidCrystal.h>
             LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // RS, E, D4, D5, D6, D7
-            const uint8_t contrast = 75;
             
             void setup() {
                 \xa0\xa0 lcd.begin(${width}, ${height});
-                \xa0\xa0 analogWrite(6, contrast);
                 \xa0\xa0 image();
               }
               
