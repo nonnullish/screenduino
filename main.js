@@ -13,17 +13,16 @@ let updateCanvasSize = (w, h) => {
     generateSegments();
     if (!codeStyle.checked) {
         document.getElementById("setup").innerText = `#include <LiquidCrystal.h>
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // RS, E, D4, D5, D6, D7
 
-        LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // RS, E, D4, D5, D6, D7
-        
-        void setup() {
-            \xa0\xa0 lcd.begin(${width}, ${height});
-            \xa0\xa0 image();
-          }
-          
-          void loop() {}
-          
-          `
+void setup() {
+    lcd.begin(${width}, ${height});
+    image();
+}
+
+void loop() {}
+
+`
     }
 }
 
@@ -167,16 +166,16 @@ let updateSetupCode = () => {
         }
         else {
             document.getElementById("setup").innerText = `#include <LiquidCrystal.h>
-            LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // RS, E, D4, D5, D6, D7
-            
-            void setup() {
-                \xa0\xa0 lcd.begin(${width}, ${height});
-                \xa0\xa0 image();
-              }
-              
-              void loop() {}
-              
-              `
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // RS, E, D4, D5, D6, D7
+
+void setup() {
+    lcd.begin(${width}, ${height});
+    image();
+}
+
+void loop() {}
+
+`
         }
     });
 }
